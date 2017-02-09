@@ -161,7 +161,7 @@ var dataCall = $.ajax({
 
 var geomCall = $.ajax({ 
     type: 'GET', 
-    url: '/data/worldmap.json', 
+    url: '.../data/worldmap.json', 
     dataType: 'json'
 });
 
