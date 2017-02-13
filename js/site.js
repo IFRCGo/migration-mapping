@@ -48,10 +48,10 @@ function generateDash(data,geom){
                     return c;
                 })          
             .featureKeyAccessor(function(feature){
-                return feature.properties['ISO_A3'];
+                return feature.properties['ISO'];
             })
             .popup(function(feature){
-                return feature.properties['NAME'];
+                return feature.properties['NAME_ENGLI'];
             })
             .renderPopup(true)
             .featureOptions({
@@ -92,7 +92,14 @@ function generateDash(data,geom){
                 },
                 function(d){
                    return d['#date+end']; 
-                }
+                },
+                function(d){
+                    if(d['#meta+source+url'].length>0){
+                        return '<a href="'+d['#meta+source+url']+'" target="_blank">Link</a>';
+                    } else {
+                        return 'No link available';
+                    }
+                }                
             ]).sortBy(function(d) {
                 return d['#country+name'];
             });                        
@@ -161,7 +168,7 @@ var dataCall = $.ajax({
 
 var geomCall = $.ajax({ 
     type: 'GET', 
-    url: 'https://ifrc-europe.github.io/migration-mapping/data/worldmap.json', 
+    url: '../data/worldmap.json', 
     dataType: 'json'
 });
 
