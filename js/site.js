@@ -168,7 +168,7 @@ var dataCall = $.ajax({
 
 var geomCall = $.ajax({ 
     type: 'GET', 
-    url: '/data/worldmap.json', 
+    url: 'https://ifrc-europe.github.io/migration-mapping/data/worldmap.json', 
     dataType: 'json'
 });
 
